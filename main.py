@@ -1,6 +1,8 @@
 from convert_16kHz_mono import convert_16kHz_mono
 from tensorflow_hub_model import tensorflow_hub_model
 from output_hz import output_hz
+from ideal_offset import hz_offset
+import statistics
 # from spectrogram import spectrogram_plot_stft
 # from time_domain import timeDomain_plot
 # from frequency_domain import freDomain_plot
@@ -21,6 +23,11 @@ def PSC(data) :
     '''3. 반환 받은 pitch값을 절대 pitch값으로 변환, confidence 값이 0.9보다 크면 절대 피치 값 배열에 저장 그 외 0 저장'''
     confident_pitch_values_hz = [output_hz(p) if c >= 0.9 else 0 for i, p, c in zip(indices, pitch_outputs, confidence_outputs)]
     # print(confident_pitch_values_hz)
+    '''텀이 있는 부분(0의 값)은 제외합니다.'''
+    offsets = [hz_offset(p) for p in confident_pitch_values_hz if p != 0]
+    '''idel offset'''
+    ideal_offset = statistics.mean(offsets)  # 데이터의 산술 평균
+    print("ideal offset: ", ideal_offset)
 PSC('Audios/input_audio.wav')
 
 
