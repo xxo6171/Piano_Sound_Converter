@@ -4,6 +4,7 @@ from tensorflow_hub_model import tensorflow_hub_model
 from output_hz import output_hz
 from ideal_offset import hz_offset
 import statistics
+from convert_output import convert_output
 # from spectrogram import spectrogram_plot_stft
 # from time_domain import timeDomain_plot
 # from frequency_domain import freDomain_plot
@@ -33,6 +34,9 @@ def PSC(data) :
     '''4. 반환 받은 절대 pitch값을 양자화시켜 음표 값 반환'''
     quantized_note, predictions_per_note = quantization(confident_pitch_values_hz, ideal_offset)
     print(quantized_note)
+
+    '''5. 반환받은 양자화된 음표값을 이용해 피아노 소리로 변환하여 출력'''
+    convert_output(convert_mono_output, quantized_note, predictions_per_note)
 
 
 PSC('Audios/input_audio.wav')
