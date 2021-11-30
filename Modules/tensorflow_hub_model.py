@@ -8,18 +8,17 @@ uncertainties: 구간 [0, 1]의 값 목록으로, 각 값은 정확한 피치 �
 pitches: 입력 오디오의 피치에 해당하는 간격 [0, 1]의 값 목록입니다.
 SPICE 모델을 사용하기 위해 샘플링 속도를 512로 맞춰서 진행해줍니다.
 '''
-
 model = hub.load("https://tfhub.dev/google/spice/2")
 def tensorflow_hub_model(data) :
 
   model_output = model.signatures["serving_default"](tf.constant(data, tf.float32))
-  #pitch 값
+  '''pitch 값'''
   pitch_outputs = model_output["pitch"]
 
-  #불확실한 pitch값
+  '''불확실한 pitch값'''
   uncertainty_outputs = model_output["uncertainty"]
 
-  #신뢰도 높은 값
+  '''신뢰도 높은 값'''
   confidence_outputs = 1.0 - uncertainty_outputs
 
   confidence_outputs = list(confidence_outputs)
