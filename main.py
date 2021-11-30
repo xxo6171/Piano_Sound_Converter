@@ -36,7 +36,7 @@ def PSC(data) :
     print(quantized_note)
 
     '''5. 반환받은 양자화된 음표값을 이용해 피아노 소리로 변환하여 출력'''
-    convert_output(convert_mono_output, quantized_note, predictions_per_note)
+    convert_output(quantized_note, predictions_per_note)
 
 
 PSC('Audios/input_audio.wav')
