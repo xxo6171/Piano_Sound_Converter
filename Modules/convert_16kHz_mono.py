@@ -2,6 +2,7 @@ from pydub import AudioSegment
 from scipy.io import wavfile
 
 '''모노 오디오 파일로 변환하는 함수입니다.'''
+
 EXPECTED_SAMPLE_RATE = 16000
 
 def convert_16kHz_mono(user_file, output_file='Audios/converted_audio_mono.wav'):
