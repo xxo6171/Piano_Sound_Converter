@@ -2,7 +2,7 @@ import statistics
 import math
 import Modules.ideal_offset as ido
 
-'''양자화 예측'''
+'''양자화, 양자화 음표 변환'''
 def quantization(confident_pitch_values_hz, ideal_offset) :
     def quantize_predictions(group, ideal_offset):
       '''그룹의 값은 0 또는 Hz 단위의 pitch입니다.'''
