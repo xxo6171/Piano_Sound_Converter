@@ -1,6 +1,6 @@
 import statistics
 import math
-import ideal_offset as ido
+import Modules.ideal_offset as ido
 
 '''양자화 예측'''
 def quantization(confident_pitch_values_hz, ideal_offset) :

@@ -1,9 +1,9 @@
-from convert_16kHz_mono import convert_16kHz_mono
-from quantization import quantization
-from tensorflow_hub_model import tensorflow_hub_model
-from output_hz import output_hz
-from ideal_offset import hz_offset
-from convert_output import convert_output
+from Modules.convert_16kHz_mono import convert_16kHz_mono
+from Modules.quantization import quantization
+from Modules.tensorflow_hub_model import tensorflow_hub_model
+from Modules.output_hz import output_hz
+from Modules.ideal_offset import hz_offset
+from Modules.convert_output import convert_output
 import statistics
 # from spectrogram import spectrogram_plot_stft
 # from time_domain import timeDomain_plot
