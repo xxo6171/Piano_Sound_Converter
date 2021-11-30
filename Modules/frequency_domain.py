@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-#주파수 영역 그래프
+'''주파수 영역 그래프 출력 함수입니다.'''
 def freDomain_plot(data) :
     fft = np.fft.fft(data)
     magnitude = np.abs(fft)

@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import librosa
 from librosa import display as librosadisplay
 
-'''스펙트로그램 그래프'''
+'''스펙트로그램 그래프 출력 함수입니다.'''
 '''오디오 샘플 int16'''
 MAX_ABS_INT16 = 32768.0
 
