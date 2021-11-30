@@ -28,7 +28,7 @@ def PSC(data) :
     offsets = [hz_offset(p) for p in confident_pitch_values_hz if p != 0]
 
     '''ideal offset'''
-    ideal_offset = statistics.mean(offsets)  # 데이터의 산술 평균
+    ideal_offset = statistics.mean(offsets)  #데이터의 산술 평균
     print("ideal offset: ", ideal_offset)
 
     '''4. 반환 받은 절대 pitch값을 양자화시켜 음표 값 반환'''
@@ -42,7 +42,9 @@ def PSC(data) :
 PSC('Audios/input_audio.wav')
 
 
-'''데이터 시각화, PSC 메소드 안에 넣어서 사용'''
+'''
+데이터 시각화, PSC 메소드 안에 넣어서 사용
 #timeDomain_plot(16000, converted_mono_audio)
 #freDomain_plot(converted_mono_audio)
 #spectrogram_plot_stft(converted_mono_audio / 32768.0, sample_rate=16000)
+'''
