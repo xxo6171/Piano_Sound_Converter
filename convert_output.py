@@ -16,6 +16,6 @@ def convert_output(convert_mono_output, quantized_note, predictions_per_note) :
             sc.append(music21.note.Note(snote, type=d))
 
     # 인식된 악보를 MIDI파일에 저장
-    converted_audio_file_as_midi = convert_mono_output[:-4] + '.mid'
+    converted_audio_file_as_midi = 'Audios/output.mid'
     fp = sc.write('midi', fp=converted_audio_file_as_midi)
     sc.show('midi')
