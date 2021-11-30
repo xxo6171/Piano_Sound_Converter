@@ -1,6 +1,7 @@
 # Piano Sound Converter(피아노 음 변환기)
 - --
-신호 및 시스템 프로젝트입니다. 파이참 환경에서 작업되었습니다.<br/><br/>
+신호 및 시스템 프로젝트입니다. 파이참 환경에서 작업되었습니다.<br/>
+colab link : https://colab.research.google.com/drive/1dbKBV2thX4q6RKs3WZs2Nk5QwofgpYiW?usp=sharing <br/>
 구성원
 * 2019253097 이경민
 * 2019253096 박상우
