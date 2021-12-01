@@ -5,9 +5,7 @@ from Modules.output_hz import output_hz
 from Modules.ideal_offset import hz_offset
 from Modules.convert_output import convert_output
 import statistics
-# from spectrogram import spectrogram_plot_stft
-# from time_domain import timeDomain_plot
-# from frequency_domain import freDomain_plot
+
 '''
 Piano Sound Converter
 pycharm 환경에서는 함수를 한번에 실행시켜 바로 변환하는 방법으로 진행, 각각의 기능을 모듈화
@@ -28,7 +26,8 @@ def PSC(data) :
     offsets = [hz_offset(p) for p in confident_pitch_values_hz if p != 0]
 
     '''ideal offset'''
-    ideal_offset = statistics.mean(offsets)  #데이터의 산술 평균
+    '''데이터의 산술 평균'''
+    ideal_offset = statistics.mean(offsets)
     print("ideal offset: ", ideal_offset)
 
     '''4. 반환 받은 절대 pitch값을 양자화시켜 음표 값 반환'''
@@ -42,6 +41,13 @@ def PSC(data) :
 PSC('Audios/input_audio.wav')
 
 
+
+
+'''
+from spectrogram import spectrogram_plot_stft
+from time_domain import timeDomain_plot
+from frequency_domain import freDomain_plot
+'''
 '''
 데이터 시각화, PSC 메소드 안에 넣어서 사용
 #timeDomain_plot(16000, converted_mono_audio)
