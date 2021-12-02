@@ -3,7 +3,7 @@ def mk_score(quantized_note, predictions_per_note) :
     '''악보를 만듭니다.'''
     sc = music21.stream.Score()
     '''실제 노래와 일치하도록 속도를 조정합니다.'''
-    bpm = 50 * 50 / predictions_per_note
+    bpm = 55 * 55 / predictions_per_note
     print('bpm: ', bpm)
     a = music21.tempo.MetronomeMark(number=bpm)
     sc.insert(0, a)
