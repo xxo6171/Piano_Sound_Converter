@@ -3,6 +3,7 @@ from Modules.tensorflow_hub_model import tensorflow_hub_model
 from Modules.output_hz import output_hz
 from Modules.ideal_offset import hz_offset
 from Modules.quantization import quantization
+from Modules.low_pass_filter import lowpassfilter
 from output_midi import mk_score
 import statistics
 
@@ -16,8 +17,12 @@ def UI_PSC(data) :
     convert_mono_output, converted_mono_audio = convert_16kHz_mono(data,output_file='../Audios/converted_audio_mono.wav')
     converted_mono_audio = converted_mono_audio / float(MAX_ABS_INT16)
 
+    '''Lowpass filter'''
+    filtered_mono_audio = lowpassfilter(converted_mono_audio)
+    filtered_mono_audio = filtered_mono_audio / float(MAX_ABS_INT16)
+
     '''2. SPICE 모델을 사용해 추정 pitch값 반환'''
-    indices, pitch_outputs, confidence_outputs = tensorflow_hub_model(converted_mono_audio)
+    indices, pitch_outputs, confidence_outputs = tensorflow_hub_model(filtered_mono_audio)
 
     '''3. 반환 받은 pitch값을 절대 pitch값으로 변환, confidence 값이 0.9보다 크면 절대 피치 값 배열에 저장 그 외 0 저장'''
     confident_pitch_values_hz = [output_hz(p) if c >= 0.9 else 0 for i, p, c in zip(indices, pitch_outputs, confidence_outputs)]
