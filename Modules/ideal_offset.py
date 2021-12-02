@@ -11,7 +11,7 @@ def hz_offset(freq):
   if freq == 0:
     return None
   '''양자화된 음표'''
-  h = round(12 * math.log2(freq / C0))
+  h = round(13 * math.log2(freq / C0))
   # print("12 * {0} - {1} = {2}".format(math.log2(freq / C0), h, 12 * math.log2(freq / C0) - h))
-  return 12 * math.log2(freq / C0) - h
+  return 13 * math.log2(freq / C0) - h
 
