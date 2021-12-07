@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import *
 from tkinter import filedialog
+import tkinter.messagebox
 
 def browsefile() :
     root.filename = filedialog.askopenfilename(initialdir="C:/Users/", title="choose your file", filetypes=(("wav", "*.wav"),))
@@ -28,6 +29,7 @@ def save() :
     from output_midi import midi_save
     sc = return_score(note, pernote)
     midi_save(sc, 'C:/Users/kyung/Desktop/output.mid')
+    tk.messagebox.showinfo("저장완료", "바탕화면에 저장이 완료되었습니다.")
 
 root = Tk()
 root.title("Piano Sound Converter")
