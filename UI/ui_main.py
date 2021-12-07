@@ -1,3 +1,4 @@
+import tkinter as tk
 from tkinter import *
 from tkinter import filedialog
 
@@ -30,6 +31,7 @@ def save() :
 
 root = Tk()
 root.title("Piano Sound Converter")
+root.tk.call('wm', 'iconphoto', root._w, tk.PhotoImage(file='icon.png'))
 w = 300
 h = 300
 ws = root.winfo_screenwidth()
