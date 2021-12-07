@@ -48,7 +48,7 @@ conda install -c conda-forge statistics
 
 - --
 # Colab
-Colab : https://colab.research.google.com/drive/1dbKBV2thX4q6RKs3WZs2Nk5QwofgpYiW?usp=sharing <br/><br/>
+Colab : https://colab.research.google.com/drive/1I1vfRznOlbL9E6n-KSZahswZMds7rfCf?usp=sharing <br/><br/>
 - --
 
 
