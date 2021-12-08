@@ -40,6 +40,7 @@ def UI_PSC(data) :
 
     return quantized_note, predictions_per_note
 
+'''악보에 들어있는 데이터 반환'''
 def return_score(quantized_note, predictions_per_note) :
     stream_score = mk_score(quantized_note, predictions_per_note)
     return stream_score

@@ -3,11 +3,13 @@ from tkinter import *
 from tkinter import filedialog
 import tkinter.messagebox
 
+'''파일 경로 불러오기'''
 def browsefile() :
     root.filename = filedialog.askopenfilename(initialdir="C:/Users/", title="choose your file", filetypes=(("wav", "*.wav"),))
     la_url["text"] = root.filename
     btn_convert['state'] = NORMAL
 
+'''변환하기'''
 def convert() :
     from ui_convert import UI_PSC
     global note
@@ -18,12 +20,14 @@ def convert() :
     btn_save['state'] = NORMAL
     return note, pernote
 
+'''재생하기'''
 def play() :
     from ui_convert import return_score
     from output_midi import midi_play
     sc = return_score(note, pernote)
     midi_play(sc)
 
+'''저장하기'''
 def save() :
     from ui_convert import return_score
     from output_midi import midi_save
@@ -31,6 +35,8 @@ def save() :
     midi_save(sc, 'C:/Users/kyung/Desktop/output.mid')
     tk.messagebox.showinfo("저장완료", "바탕화면에 저장이 완료되었습니다.")
 
+
+'''컴포넌트 배치'''
 root = Tk()
 root.title("Piano Sound Converter")
 root.tk.call('wm', 'iconphoto', root._w, tk.PhotoImage(file='icon.png'))
